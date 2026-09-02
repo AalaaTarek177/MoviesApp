@@ -1,0 +1,176 @@
+:root {
+  --mainColor: rgb(227, 197, 144);
+  --gray: #a7a7a7;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family:
+    DM Sans,
+    sans-serif;
+  position: relative;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Forum;
+}
+.mainColor {
+  color: var(--mainColor);
+}
+.imageProperty {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mainBtn {
+  border: 1px solid var(--mainColor);
+  border-radius: 6px;
+  padding: 12px 25px;
+  display: block;
+  max-width: fit-content;
+  margin-inline: auto;
+  letter-spacing: 1.2px;
+  position: relative;
+  overflow: hidden;
+}
+.mainBtn::before,
+.mainBtn::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 50%;
+  background-color: var(--mainColor);
+  position: absolute;
+  left: 0;
+  transition-duration: 0.5s;
+}
+.mainBtn::before {
+  top: -50%;
+}
+.mainBtn::after {
+  bottom: -50%;
+}
+
+.mainBtn:hover::before {
+  top: 0;
+}
+.mainBtn:hover::after {
+  bottom: 0;
+}
+.mainBtn span {
+  color: var(--mainColor);
+  position: relative;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+.mainBtn:hover span {
+  color: black;
+}
+li .underLine span,
+a .underLine span {
+  height: 1px;
+  background-color: var(--mainColor);
+  display: block;
+  transform: scaleX(0);
+  transition-duration: 0.5s;
+}
+li:hover .underLine span,
+a:hover .underLine span {
+  transform: scaleX(1);
+}
+li.active .underLine span,
+a.active .underLine span {
+  transform: scaleX(1);
+}
+
+.underLine span:first-child {
+  margin-bottom: 2px;
+}
+.head .image {
+  width: 100px;
+  margin-inline: auto;
+}
+.link {
+  width: fit-content;
+  margin-inline: auto;
+}
+.link a {
+  color: white;
+  transition-duration: 0.5s;
+  font-weight: 500;
+}
+.link a:hover,
+.link a.active {
+  color: var(--mainColor);
+}
+.lodging {
+  position: fixed;
+  inset: 0;
+  background-color: var(--mainColor);
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+.lodging.show {
+  z-index: 300;
+  opacity: 1;
+}
+.lodging .spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ccc;
+  border-top: 4px solid #432f2f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+.lodging span {
+  position: relative;
+  font-size: 80px;
+  color: black;
+  display: inline-block;
+  background-color: transparent;
+}
+.lodging span::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.inner {
+  display: inline-block;
+  animation: lodging 3s linear;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+.letter:nth-child(1) .inner {
+  animation-delay: 0s;
+}
+.letter:nth-child(2) .inner {
+  animation-delay: 0.3s;
+}
+.letter:nth-child(3) .inner {
+  animation-delay: 0.6s;
+}
+.letter:nth-child(4) .inner {
+  animation-delay: 0.9s;
+}
+.letter:nth-child(5) .inner {
+  animation-delay: 1.2s;
+}
+.letter:nth-child(6) .inner {
+  animation-delay: 1.5s;
+}
